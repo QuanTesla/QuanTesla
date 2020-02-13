@@ -6,6 +6,9 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+yfinance = "*"
+plotly = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.8"
