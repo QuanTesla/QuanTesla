@@ -16,7 +16,7 @@ def create_candlestick_graph(stock_data: pd.DataFrame) -> go.Figure:
         open=stock_data.Open,
         low=stock_data.Low,
         high=stock_data.High,
-        close=stock_data.Close
+        close=stock_data.Close,
         )])
 
 
