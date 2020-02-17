@@ -10,7 +10,7 @@ def create_stock_data(company: str, period: str = "1y", interval: str = "1d") ->
 
 
 # Wrapper to create a candlestick graph
-def create_candlestick_graph(stock_data: pd.DataFrame) -> go.Candlestick:
+def create_candlestick_graph(stock_data: pd.DataFrame) -> go.Figure:
     return go.Figure(data=[go.Candlestick(
         x=stock_data.index,
         open=stock_data.Open,
@@ -29,6 +29,7 @@ if __name__ == "__main__":
     # This creates the graph where the x axis is the datetime of the graph and the y
     # axis is the data from the open column
     fig = create_candlestick_graph(tsla)
+    fig.update_layout(template="plotly_dark")
 
     # Show the data
     fig.show()
