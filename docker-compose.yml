@@ -1,0 +1,42 @@
+version: "1"
+
+services:
+  frontend:
+    build:
+      context: ./services/frontend
+      dockerfile: ./Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - ./services/frontend/:/app
+      - /app/node_modules/
+    environment:
+      DEBUG: 1
+  #  logging:
+  #     driver: "none"
+
+  data_processor:
+    build:
+      context: ./services/
+      dockerfile: ./data_processor/Dockerfile
+    ports:
+      - 9090:80
+    volumes:
+      - ./services/data_processor:/app
+    environment:
+      DEBUG: 1
+  #  logging:
+  #     driver: "none"
+
+  backtester:
+    build:
+      context: ./services/
+      dockerfile: ./backtester/Dockerfile
+    ports:
+      - 9091:80
+    volumes:
+      - ./services/backtester:/app
+    environment:
+      DEBUG: 1
+  #  logging:
+  #     driver: "none"
